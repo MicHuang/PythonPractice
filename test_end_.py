@@ -15,4 +15,23 @@ def fib2(n):
     return result
 
 
-print(fib2(100))
+def ask_ok(promp, retries=4, reminder="Plz try again!"):
+    while True:
+        ok = input(promp)
+        if ok in ("y", "ye", "yes"):
+            return True
+        if ok in ("n", "no", "nope"):
+            return False
+        retries -= 1
+        if retries < 0:
+            print(reminder)
+
+
+def parrot(voltage, state='a stiff', action='voom', type='Norwegian Blue'):
+    print("-- This parrot wouldn't", action, end=' ')
+    print("if you put", voltage, "volts through it.")
+    print("-- Lovely plumage, the", type)
+    print("-- It's", state, "!")
+
+
+parrot('a million', 'bereft of life', 'jump')
