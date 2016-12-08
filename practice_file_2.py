@@ -1,16 +1,29 @@
-class Parent():
-    def print_lastname(self):
-        print('Huang')
+import threading
 
 
-class Child(Parent):
-    def print_firstname(self):
-        print('Yiqi', end=' ')
-
-    def print_lastname(self):
-        print('Waltson')
+class Teacher():
+    def teacher_class(self):
+        print('I am teaching science.')
 
 
-mic = Child()
-mic.print_firstname()
-mic.print_lastname()
+class Stripper():
+    def dance(self):
+        print('I am dancing.')
+
+
+class GoodTeacher(Teacher, Stripper):
+    pass
+
+
+class Messenger(threading.Thread):
+    def run(self):
+        for _ in range(10):
+            print(threading.currentThread().getName())
+
+
+'''
+send = Messenger(name='Sender start')
+receive = Messenger(name='receiver start')
+send.start()
+receive.start()
+'''
